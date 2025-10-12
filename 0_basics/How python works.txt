@@ -1,0 +1,37 @@
+
+we download the python interpreter ( Cpython). it is written in low level language and runs as a process. the interpreter
+reads the compiled code and runs it line by line. when we run a python script it gets compiled by the compiler which is a part
+of the interpreter , now the actual compiled code is then executd by the interprenter line by line in a synchronus fashon.
+
+pip is similar to maven. it is the projet manager tool that is used to deal with third pary libraries . pypi is similr to maven central
+repo where we find all differnt types of dependecy libraries for our project.
+
+ we create a virtual env ,  a virtaul or a .venv then is created inside our project , we then use pip to install or add libraries
+ to this virtaul env, this virtaul env comes with the python interpreter , now this virtaul interpreter knows about all the dependency
+ libraries in the .venv folder and this interpreter then runs the projcet , we activate the interprenter in the .venv folder
+
+ similar to jvm process in cpython many of the process like printing items to screen etc aare implemented in low level lang.
+
+
+ python is a dynamic language ,unlike java here the oop also comes wiht less restrictions , it believes or has a say called
+ "we are all adults here" so we take it that way.
+
+ since we can have functions in python , we can have methods also. we can pass functions as inpyut arg and return from a method or
+ function similar to js.
+
+ lamda in python is just a single expression  >>> lambda a,b : a+b
+
+ decorators are similar to having annotations and generators to make more memory efficient way of dealing with certain tasks.
+
+ in oop just remember there is no restrictions at all , child class can access literally everything in parent and so on..
+
+ monkey-pathcing conecpt is little off but it's there, even a class doesn't define a attribute or a instance variable in the
+ blueprint the obj can create it's own . like for e:g eventhough employee class has no attribute for age we can create a employee
+ obj out of the class and assing the age field to that perticular obj >>  e.age=30
+
+ the in operator can be used to check whether an elemtn is in a list or dictionary or tuples.
+
+ There are build in functions and class , such as len, print, range etc are buit in functions and Str , Tuples, Dict are build in class
+ that has method like append , keys , values ,  pop , items etcc
+
+ other keywords and concepts --->> yield , rnage , enumerator , ___intit__.py file , tuple unpacking , lambda , string formating

@@ -1,0 +1,57 @@
+That's where the "magic" of decorators with arguments lies! It can be confusing because it involves a chain of three nested functions.
+
+The short answer is that the process works in two distinct phases: the Configuration Phase (where count=3 is passed) and
+the Decoration Phase (where greet is passed).
+
+Here is the step-by-step inner working:
+
+Inner Working of Decorators with Arguments
+Phase 1: Configuration (The Factory Call)
+This phase happens before your code is ever run, when Python first loads the script.
+
+Python sees the @ symbol: It immediately executes the code inside the parentheses: repeat_message(count=3).
+
+repeat_message(3) runs:
+
+It receives the argument count=3.
+
+It remembers this value (a concept called "closure").
+
+It executes its entire body and returns the inner function called decorator.
+
+At this point, the line @repeat_message(count=3) is effectively replaced with @decorator.
+
+Phase 2: Decoration (The Function Assignment)
+Now, Python treats the line as a standard decorator call:
+
+Python sees @decorator above greet: It takes the function immediately below it (greet) and passes it as an argument to
+the function returned in Phase 1 (decorator).
+
+decorator(greet) runs:
+
+It receives the actual greet function object as the argument func.
+
+It defines the innermost function, wrapper, which contains the final logic (using the stored count of 3).
+
+It executes its entire body and returns the wrapper function.
+
+Final Assignment: The original greet function is replaced in memory with the newly created wrapper function.
+
+When you later call greet("Alex"), you are actually calling the wrapper function.
+
+2. The Role of *args and **kwargs
+You asked: "Don't we use *args and **kwargs while defining a function, or we use it also when calling?"
+
+You primarily use *args and **kwargs when defining a function to make it flexible (able to accept any number of positional or keyword arguments).
+
+The key is that you also use them when calling a function to unpack a collection of arguments.
+
+In the decorator's wrapper function, they serve both roles:
+
+Defining: def wrapper(*args, **kwargs): This tells the wrapper it can accept any arguments the original function (greet)
+ was going to receive (e.g., "Alex").
+
+Calling/Unpacking: result = func(*args, **kwargs): This takes the arguments the wrapper received ("Alex") and unpacks them,
+passing them correctly to the original function (func, which is greet).
+
+This ensures the wrapper acts as a seamless middleman, passing all arguments along without knowing exactly how many there are.
